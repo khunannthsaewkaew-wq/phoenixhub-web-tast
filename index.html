@@ -44,6 +44,7 @@
             width: 100%;
             margin-bottom: 15px;
             transition: 0.3s;
+            font-weight: bold;
         }
         button:hover {
             background-color: #ff1c1c;
@@ -56,64 +57,24 @@
         #script-box {
             display: none;
             margin-top: 20px;
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
         }
         textarea {
             width: 90%;
             height: 80px;
             background-color: #000;
             color: #00ff00;
-            border: 1px solid #333;
+            border: 1px solid #444;
             padding: 10px;
             border-radius: 5px;
             resize: none;
             font-family: monospace;
+            margin-bottom: 10px;
         }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <h1>PhoenixHub</h1>
-        <p>ทำภารกิจให้สำเร็จเพื่อรับสคริปต์</p>
-
-        <!-- ปุ่มกดไป YouTube -->
-        <button id="task-btn" onclick="startTask()">1. กดติดตาม YouTube</button>
-
-        <!-- กล่องใส่สคริปต์ที่จะโชว์หลังทำภารกิจเสร็จ -->
-        <div id="script-box">
-            <p style="color: #00ff00;">✅ ปลดล็อคสำเร็จ!</p>
-            <textarea id="script-code" readonly>loadstring(game:HttpGet("ใส่ลิงก์สคริปต์ raw ของคุณตรงนี้"))()</textarea>
-            <button onclick="copyScript()" style="background-color: #4CAF50;">2. คัดลอกสคริปต์</button>
-        </div>
-    </div>
-
-    <script>
-        // ระบบตรวจสอบและปลดล็อค
-        function startTask() {
-            let taskBtn = document.getElementById("task-btn");
-            
-            // เปลี่ยนลิงก์ด้านล่างเป็นช่อง YouTube หรือคลิปของคุณ
-            window.open("https://www.youtube.com/", "_blank"); 
-
-            // เปลี่ยนปุ่มเป็นสถานะกำลังตรวจสอบ
-            taskBtn.innerText = "กำลังตรวจสอบ (รอ 5 วินาที)...";
-            taskBtn.disabled = true;
-
-            // ตั้งเวลาดีเลย์ 5 วินาที (5000 มิลลิวินาที) ก่อนโชว์สคริปต์
-            setTimeout(function() {
-                taskBtn.style.display = "none"; // ซ่อนปุ่มทำภารกิจ
-                document.getElementById("script-box").style.display = "block"; // โชว์กล่องสคริปต์
-            }, 5000);
+        .copy-btn {
+            background-color: #4CAF50;
         }
-
-        // ระบบก็อปปี้โค้ด
-        function copyScript() {
-            let scriptCode = document.getElementById("script-code");
-            scriptCode.select();
-            document.execCommand("copy");
-            alert("คัดลอกสคริปต์เรียบร้อยแล้ว!");
-        }
-    </script>
-
-</body>
-</html>
+        .copy-btn:hover {
+            background-color
